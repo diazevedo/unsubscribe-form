@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Capstone Newsletter - Unsubscribe</title>
+
+    <style>
+      body,
+      main {
+        width: 100%;
+      }
+
+      body {
+        display: flex;
+        align-items: center;
+        height: 80vh;
+        margin: 0;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 14px;
+      }
+
+      main {
+        border: 1px solid #000;
+        border-radius: 8px;
+        max-width: 700px;
+        margin: 0 auto;
+
+        padding: 0 20px 20px;
+      }
+
+      form {
+        margin-top: 20px;
+      }
+
+      form * {
+        margin-bottom: 5px;
+      }
+
+      fieldset {
+        padding: 0;
+        border: none;
+      }
+
+      legend {
+        font-size: 16px;
+        padding: 0;
+      }
+
+      label,
+      input {
+        margin: 0;
+      }
+
+      input {
+        margin-right: 10px;
+      }
+
+      .container {
+        display: flex;
+        align-items: center;
+
+        height: 40px;
+      }
+
+      button {
+        border: none;
+        background-color: rgb(139, 37, 37);
+        border-radius: 5px;
+        padding: 0.75em;
+        color: #fff;
+      }
+
+      button:hover {
+        cursor: pointer;
+        background-color: brown;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <h1>Capstone Newsletter</h1>
+      <div>
+        <p>Sorry to see you to leave <span class="name"></span>.</p>
+        <p>Your email registered is <span class="email"></span></p>
+      </div>
+      <form>
+        <fieldset>
+          <legend>
+            Do you want to unsubscribe from this amazing newsletter?
+          </legend>
+          <div class="container">
+            <input type="checkbox" name="unsubscribe" id="unsubscribe" />
+            <label for="unsubscribe">yes, I want to unsubscribe. </label>
+          </div>
+        </fieldset>
+
+        <button type="submit">Confirm</button>
+      </form>
+    </main>
+  </body>
+
+  <script>
+    function addData(name, email) {
+      const $name = document.querySelector(".name");
+      const $email = document.querySelector(".email");
+      $name.textContent = name;
+      $email.textContent = email;
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
+      const name = urlParams.get("firstName") || "XXXX";
+      const email = urlParams.get("email") || "xxxx@xxxx.com";
+      addData(name, email);
+    });
+  </script>
+</html>
